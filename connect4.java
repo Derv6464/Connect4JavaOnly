@@ -42,4 +42,80 @@ public class connect4{
         System.out.println("1   2   3   4   5   6   7");
 
     }
+
+    public static boolean checkWin(boolean turn,int[][] arr) {
+        if((horizontalWin(turn,arr))||(verticalWin(turn,arr))||(positiveDiagonalWin(turn,arr))||(negativeDiagonalWin(turn,arr))){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    public static boolean horizontalWin(boolean turn, int[][]arr) {
+        int s;
+        if(turn) {
+            s = 1;
+        }
+        else {
+            s = 2;
+        }
+        for(int i = 0;i<4;i++) {
+            for(int j = 0;j<6;j++) {
+                if((arr[i][j] == s) && (arr[i+1][j] == s) && (arr[i+2][j] == s) && (arr[i+3][j] == s)) {
+                    return true;
+                }
+            }
+        }
+        return false;         
+    }
+    public static boolean verticalWin(boolean turn, int[][]arr) {
+        int s;
+        if(turn) {
+            s = 1;
+        }
+        else {
+            s = 2;
+        }
+        for(int i = 0;i<7;i++) {
+            for(int j = 0;j<3;j++) {
+                if((arr[i][j] == s) && (arr[i][j+1] == s) && (arr[i][j+2] == s) && (arr[i][j+3] == s)) {
+                    return true;
+                }
+            }
+        }return false;
+    }
+    public static boolean positiveDiagonalWin(boolean turn, int[][]arr) {
+        int s;
+        if(turn) {
+            s = 1;
+        }
+        else {
+            s = 2;
+        }
+        for(int i = 0;i<4;i++) {
+            for(int j = 3;j<7;j++) {
+                if((arr[i][j] == s) && (arr[i+1][j+1] == s) && (arr[i+2][j+2] == s) && (arr[i+3][j+3] == s)) {
+                    return true;
+                }
+            }
+        }return false;
+            
+    }
+    public static boolean negativeDiagonalWin(boolean turn, int[][]arr) {
+        int s;
+        if(turn) {
+            s = 1;
+        }
+        else {
+            s = 2;
+        }
+        for(int i = 0;i<4;i++) {
+            for(int j = 0;j<3;j++) {
+                if((arr[i][j] == s) && (arr[i-1][j-1] == s) && (arr[i-2][j-2] == s) && (arr[i-3][j-3] == s)) {
+                    return true;
+                }
+            }
+        }
+        return false;        
+    }
 }
