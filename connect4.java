@@ -49,7 +49,7 @@ public class connect4{
         }
         else {
             return false;
-        }
+        }
     }
     public static boolean horizontalWin(boolean turn, int[][]arr) {
         int s;
@@ -66,8 +66,8 @@ public class connect4{
                 }
             }
         }
-        return false;         
-    }
+        return false;
+     }
     public static boolean verticalWin(boolean turn, int[][]arr) {
         int s;
         if(turn) {
@@ -98,8 +98,9 @@ public class connect4{
                     return true;
                 }
             }
-        }return false;
-            
+        }
+        return false;
+
     }
     public static boolean negativeDiagonalWin(boolean turn, int[][]arr) {
         int s;
@@ -116,6 +117,6 @@ public class connect4{
                 }
             }
         }
-        return false;        
+        return false;
     }
 }
