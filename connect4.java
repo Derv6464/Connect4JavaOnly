@@ -44,11 +44,10 @@ public class connect4{
     }
 
     static void updateGrid(String[][] arr){
-        for(int i = 0;i<arr.length;i++){
-            System.out.println(arr[i][0] +" | "+ arr[i][1] +" | "+ arr[i][2] +" | "+ arr[i][3]+" | "+ arr[i][4] +" | "+ arr[i][5] +" | "+ arr[i][6] );
+        for(int i = 0;i<6;i++){
+            System.out.println(arr[0][i] +" | "+ arr[1][i] +" | "+ arr[2][i] +" | "+ arr[3][i]+" | "+ arr[4][i] +" | "+ arr[5][i] +" | "+ arr[6][i] );
         }
         System.out.println("1   2   3   4   5   6   7");
-
     }
 
     public static boolean checkWin(boolean turn,String[][] arr) {
