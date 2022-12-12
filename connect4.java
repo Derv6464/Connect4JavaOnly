@@ -14,6 +14,7 @@ public class connect4{
         System.out.println("Select a square");
         Scanner in = new Scanner(System.in);
         int input = in.nextInt();
+
         while(!checkWin(turn,arr)){
             turn = insert(input, input, turn, arr);
             updateGrid(arr);
@@ -29,9 +30,9 @@ public class connect4{
     }
 
     static boolean insert(int input, int y,boolean turn,String[][] arr){
-        int cnt = 0;
+        int cnt = 5;
         while(arr[cnt][input-1] != " "){
-            cnt += 1;
+            cnt -= 1;
         }
         if(turn){
             arr[cnt][input-1] = "X";          
@@ -43,9 +44,9 @@ public class connect4{
     }
 
     static void updateGrid(String[][] arr){
-        for(int j = 0;j<6;j++){
-                System.out.println(arr[0][j] +" | " + arr[1][j] +" | " + arr[2][j] +" | " + arr[3][j] +" | " + arr[4][j] +" | " + arr[5][j] +" | " + arr[6][j]);
-            }           
+        for(int i = 0;i<arr.length;i++){
+            System.out.println(arr[i][0] +" | "+ arr[i][1] +" | "+ arr[i][2] +" | "+ arr[i][3]+" | "+ arr[i][4] +" | "+ arr[i][5] +" | "+ arr[i][6] );
+        }
         System.out.println("1   2   3   4   5   6   7");
 
     }
