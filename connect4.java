@@ -22,23 +22,21 @@ public class connect4{
 
     static boolean insert(int input, int y,boolean turn,String[][] arr){
         int cnt = 0;
-        while(arr[cnt][input-1] != " "){
+        while(arr[input-1][cnt] != " "){
             cnt += 1;
         }
         if(turn){
-            arr[cnt][input-1] = "X";          
+            arr[input-1][cnt] = "X";          
         }else{
-            arr[cnt][input-1] = "O";           
+            arr[input-1][cnt] = "O";           
         }
         turn = !turn;
         return turn;
     }
 
     static void updateGrid(String[][] arr){
-
-        for(int i = arr.length-1;i>-1;i--){
-            System.out.println(arr[i][0] +" | "+ arr[i][1] +" | "+ arr[i][2] +" | "+ arr[i][3]+" | "+ arr[i][4] +" | "+ arr[i][5] +" | "+ arr[i][6] );
-
+        for(int i = 5;i>-1;i--){
+            System.out.println(arr[0][i]+" | "+ arr[1][i] +" | "+ arr[2][i] +" | "+ arr[3][i]+" | "+ arr[4][i] +" | "+ arr[5][i] +" | "+ arr[6][i] );
         }
         System.out.println("1   2   3   4   5   6   7");
     }
