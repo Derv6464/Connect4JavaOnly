@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class connect4{
     public static void main(String[] args){
-        String[][] arr = new String[6][7];
+        String[][] arr = new String[7][6];
         boolean turn = true;
-        for(int i = 0;i<arr.length;i++){
-            for(int j = 0;j<(arr.length+1);j++){
+        for(int i = 0;i<7;i++){
+            for(int j = 0;j<6;j++){
                 arr[i][j] = " ";
             }
         }
@@ -36,11 +36,12 @@ public class connect4{
     }
 
     static void updateGrid(String[][] arr){
+
         for(int i = arr.length-1;i>-1;i--){
             System.out.println(arr[i][0] +" | "+ arr[i][1] +" | "+ arr[i][2] +" | "+ arr[i][3]+" | "+ arr[i][4] +" | "+ arr[i][5] +" | "+ arr[i][6] );
+
         }
         System.out.println("1   2   3   4   5   6   7");
-
     }
 
     public static boolean checkWin(boolean turn,int[][] arr) {
@@ -93,7 +94,7 @@ public class connect4{
             s = 2;
         }
         for(int i = 0;i<4;i++) {
-            for(int j = 3;j<7;j++) {
+            for(int j = 3;j<6;j++) {
                 if((arr[i][j] == s) && (arr[i+1][j+1] == s) && (arr[i+2][j+2] == s) && (arr[i+3][j+3] == s)) {
                     return true;
                 }
