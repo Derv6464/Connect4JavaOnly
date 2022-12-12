@@ -41,7 +41,7 @@ public class connect4{
     }
 
     static void updateGrid(String[][] arr){
-        for(int i = arr.length-1;i>-1;i--){
+        for(int i = 5;i>-1;i--){
             System.out.println(arr[i][0] +" | "+ arr[i][1] +" | "+ arr[i][2] +" | "+ arr[i][3]+" | "+ arr[i][4] +" | "+ arr[i][5] +" | "+ arr[i][6] );
 
         }
