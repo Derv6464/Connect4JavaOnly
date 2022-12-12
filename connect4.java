@@ -1,5 +1,4 @@
 import java.util.Scanner;
-//test
 public class connect4{
     public static void main(String[] args){
         String[][] arr = new String[7][6];
