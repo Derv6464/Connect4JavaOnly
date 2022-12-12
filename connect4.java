@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class connect4{
     public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
         String[][] arr = new String[7][6];
         boolean turn = true;
         for(int i = 0;i<7;i++){
@@ -9,40 +10,47 @@ public class connect4{
             }
         }
         updateGrid(arr);
-        while(true){
-        System.out.println("Select a square");
-        Scanner in = new Scanner(System.in);
-        int input = in.nextInt();
+        while(!checkWin(turn,arr)){
+            System.out.println("Select a square");
+        
+            int input = in.nextInt();
 
-        turn = insert(input, input, turn, arr);
-        updateGrid(arr);
+            turn = insert(input, input, turn, arr);
+            updateGrid(arr);
 
+        }
+        if(turn){
+            System.out.println("Player 2 wins");
+        }else{
+            System.out.println("Player 1 wins");
         }
     }
 
     static boolean insert(int input, int y,boolean turn,String[][] arr){
         int cnt = 0;
-        while(arr[input-1][cnt] != " "){
+        while(arr[cnt][input-1] != " "){
             cnt += 1;
         }
         if(turn){
-            arr[input-1][cnt] = "X";          
+            arr[cnt][input-1] = "X";          
         }else{
-            arr[input-1][cnt] = "O";           
+            arr[cnt][input-1] = "O";           
         }
         turn = !turn;
         return turn;
     }
 
     static void updateGrid(String[][] arr){
-        for(int i = 5;i>-1;i--){
-            System.out.println(arr[0][i]+" | "+ arr[1][i] +" | "+ arr[2][i] +" | "+ arr[3][i]+" | "+ arr[4][i] +" | "+ arr[5][i] +" | "+ arr[6][i] );
+        for(int i = arr.length-1;i>-1;i--){
+            System.out.println(arr[i][0] +" | "+ arr[i][1] +" | "+ arr[i][2] +" | "+ arr[i][3]+" | "+ arr[i][4] +" | "+ arr[i][5] +" | "+ arr[i][6] );
+
         }
         System.out.println("1   2   3   4   5   6   7");
     }
 
     public static boolean checkWin(boolean turn,String[][] arr) {
-        if((horizontalWin(turn,arr))||(verticalWin(turn,arr))||(positiveDiagonalWin(turn,arr))||(negativeDiagonalWin(turn,arr))){
+        // if((horizontalWin(turn,arr))||(verticalWin(turn,arr))||(positiveDiagonalWin(turn,arr))||(negativeDiagonalWin(turn,arr))){
+        if(true){
             return true;
         }
         else {
