@@ -16,7 +16,7 @@ public class connect4{
         int input = in.nextInt();
 
         while(!checkWin(turn,arr)){
-            turn = insert(input, input, turn, arr);
+            turn = insert(input,  turn, arr);
             updateGrid(arr);
         }
         if(turn == true){
@@ -29,7 +29,7 @@ public class connect4{
         }
     }
 
-    static boolean insert(int input, int y,boolean turn,String[][] arr){
+    static boolean insert(int input,boolean turn,String[][] arr){
         int cnt = 5;
         while(arr[cnt][input-1] != " "){
             cnt -= 1;
