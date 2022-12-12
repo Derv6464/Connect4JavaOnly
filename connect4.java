@@ -41,7 +41,7 @@ public class connect4{
         System.out.println("1   2   3   4   5   6   7");
     }
 
-    public static boolean checkWin(boolean turn,int[][] arr) {
+    public static boolean checkWin(boolean turn,String[][] arr) {
         if((horizontalWin(turn,arr))||(verticalWin(turn,arr))||(positiveDiagonalWin(turn,arr))||(negativeDiagonalWin(turn,arr))){
             return true;
         }
@@ -49,13 +49,13 @@ public class connect4{
             return false;
         }
     }
-    public static boolean horizontalWin(boolean turn, int[][]arr) {
-        int s;
+    public static boolean horizontalWin(boolean turn, String[][]arr) {
+        String s;
         if(turn) {
-            s = 1;
+            s = "X";
         }
         else {
-            s = 2;
+            s = "O";
         }
         for(int i = 0;i<4;i++) {
             for(int j = 0;j<6;j++) {
@@ -66,13 +66,13 @@ public class connect4{
         }
         return false;
      }
-    public static boolean verticalWin(boolean turn, int[][]arr) {
-        int s;
+    public static boolean verticalWin(boolean turn, String[][]arr) {
+        String s;
         if(turn) {
-            s = 1;
+            s = "X";
         }
         else {
-            s = 2;
+            s = "O";
         }
         for(int i = 0;i<7;i++) {
             for(int j = 0;j<3;j++) {
@@ -82,13 +82,13 @@ public class connect4{
             }
         }return false;
     }
-    public static boolean positiveDiagonalWin(boolean turn, int[][]arr) {
-        int s;
+    public static boolean positiveDiagonalWin(boolean turn, String[][]arr) {
+        String s;
         if(turn) {
-            s = 1;
+            s = "X";
         }
         else {
-            s = 2;
+            s = "O";
         }
         for(int i = 0;i<4;i++) {
             for(int j = 3;j<6;j++) {
@@ -100,13 +100,13 @@ public class connect4{
         return false;
 
     }
-    public static boolean negativeDiagonalWin(boolean turn, int[][]arr) {
-        int s;
+    public static boolean negativeDiagonalWin(boolean turn, String[][]arr) {
+        String s;
         if(turn) {
-            s = 1;
+            s = "X";
         }
         else {
-            s = 2;
+            s = "O";
         }
         for(int i = 0;i<4;i++) {
             for(int j = 0;j<3;j++) {
