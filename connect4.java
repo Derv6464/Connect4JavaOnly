@@ -15,7 +15,7 @@ public class connect4{
         
             int input = in.nextInt();
 
-            turn = insert(input, input, turn, arr);
+            turn = insert(input, turn, arr);
             updateGrid(arr);
 
         }
@@ -26,7 +26,7 @@ public class connect4{
         }
     }
 
-    static boolean insert(int input, int y,boolean turn,String[][] arr){
+    static boolean insert(int input, boolean turn,String[][] arr){
         int cnt = 0;
         while(arr[input-1][cnt] != " "){
             cnt += 1;
@@ -99,7 +99,7 @@ public class connect4{
         }
         for(int i = 0;i<4;i++) {
             for(int j = 3;j<6;j++) {
-                if((arr[i][j] == s) && (arr[i+1][j+1] == s) && (arr[i+2][j+2] == s) && (arr[i+3][j+3] == s)) {
+                if((arr[i][j] == s) && (arr[i+1][j-1] == s) && (arr[i+2][j-2] == s) && (arr[i+3][j-3] == s)) {
                     return true;
                 }
             }
@@ -116,10 +116,9 @@ public class connect4{
             s = "O";
         }
 
-        //range of this is wrong
         for(int i = 0;i<4;i++) {
             for(int j = 0;j<3;j++) {
-                if((arr[i][j] == s) && (arr[i-1][j-1] == s) && (arr[i-2][j-2] == s) && (arr[i-3][j-3] == s)) {
+                if((arr[i][j] == s) && (arr[i+1][j+1] == s) && (arr[i+2][j+2] == s) && (arr[i+3][j+3] == s)) {
                     return true;
                 }
             }
