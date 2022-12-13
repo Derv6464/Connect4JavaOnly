@@ -15,7 +15,7 @@ public class connect4{
         
             int input = in.nextInt();
 
-            turn = insert(input, input, turn, arr);
+            turn = insert(input, turn, arr);
             updateGrid(arr);
 
         }
@@ -26,15 +26,15 @@ public class connect4{
         }
     }
 
-    static boolean insert(int input, int y,boolean turn,String[][] arr){
+    static boolean insert(int input, boolean turn,String[][] arr){
         int cnt = 0;
-        while(arr[cnt][input-1] != " "){
+        while(arr[input-1][cnt] != " "){
             cnt += 1;
         }
         if(turn){
-            arr[cnt][input-1] = "X";          
+            arr[input-1][cnt] = "X";          
         }else{
-            arr[cnt][input-1] = "O";           
+            arr[input-1][cnt] = "O";           
         }
         turn = !turn;
         return turn;
@@ -42,15 +42,14 @@ public class connect4{
 
     static void updateGrid(String[][] arr){
         for(int i = 5;i>-1;i--){
-            System.out.println(arr[i][0] +" | "+ arr[i][1] +" | "+ arr[i][2] +" | "+ arr[i][3]+" | "+ arr[i][4] +" | "+ arr[i][5] +" | "+ arr[i][6] );
+            System.out.println(arr[0][i] +" | "+ arr[1][i] +" | "+ arr[2][i] +" | "+ arr[3][i]+" | "+ arr[4][i] +" | "+ arr[5][i] +" | "+ arr[6][i] );
 
         }
         System.out.println("1   2   3   4   5   6   7");
     }
 
     public static boolean checkWin(boolean turn,String[][] arr) {
-        // if((horizontalWin(turn,arr))||(verticalWin(turn,arr))||(positiveDiagonalWin(turn,arr))||(negativeDiagonalWin(turn,arr))){
-        if(true){
+        if((horizontalWin(turn,arr))||(verticalWin(turn,arr))||(positiveDiagonalWin(turn,arr))||(negativeDiagonalWin(turn,arr))){
             return true;
         }
         else {
@@ -59,7 +58,7 @@ public class connect4{
     }
     public static boolean horizontalWin(boolean turn, String[][]arr) {
         String s;
-        if(turn) {
+        if(!turn) {
             s = "X";
         }
         else {
@@ -76,7 +75,7 @@ public class connect4{
      }
     public static boolean verticalWin(boolean turn, String[][]arr) {
         String s;
-        if(turn) {
+        if(!turn) {
             s = "X";
         }
         else {
@@ -92,7 +91,7 @@ public class connect4{
     }
     public static boolean positiveDiagonalWin(boolean turn, String[][]arr) {
         String s;
-        if(turn) {
+        if(!turn) {
             s = "X";
         }
         else {
@@ -100,7 +99,7 @@ public class connect4{
         }
         for(int i = 0;i<4;i++) {
             for(int j = 3;j<6;j++) {
-                if((arr[i][j] == s) && (arr[i+1][j+1] == s) && (arr[i+2][j+2] == s) && (arr[i+3][j+3] == s)) {
+                if((arr[i][j] == s) && (arr[i+1][j-1] == s) && (arr[i+2][j-2] == s) && (arr[i+3][j-3] == s)) {
                     return true;
                 }
             }
@@ -110,15 +109,16 @@ public class connect4{
     }
     public static boolean negativeDiagonalWin(boolean turn, String[][]arr) {
         String s;
-        if(turn) {
+        if(!turn) {
             s = "X";
         }
         else {
             s = "O";
         }
+
         for(int i = 0;i<4;i++) {
             for(int j = 0;j<3;j++) {
-                if((arr[i][j] == s) && (arr[i-1][j-1] == s) && (arr[i-2][j-2] == s) && (arr[i-3][j-3] == s)) {
+                if((arr[i][j] == s) && (arr[i+1][j+1] == s) && (arr[i+2][j+2] == s) && (arr[i+3][j+3] == s)) {
                     return true;
                 }
             }
