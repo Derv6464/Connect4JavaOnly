@@ -58,7 +58,7 @@ public class connect4{
     }
     public static boolean horizontalWin(boolean turn, String[][]arr) {
         String s;
-        if(turn) {
+        if(!turn) {
             s = "X";
         }
         else {
@@ -75,7 +75,7 @@ public class connect4{
      }
     public static boolean verticalWin(boolean turn, String[][]arr) {
         String s;
-        if(turn) {
+        if(!turn) {
             s = "X";
         }
         else {
@@ -91,7 +91,7 @@ public class connect4{
     }
     public static boolean positiveDiagonalWin(boolean turn, String[][]arr) {
         String s;
-        if(turn) {
+        if(!turn) {
             s = "X";
         }
         else {
@@ -109,7 +109,7 @@ public class connect4{
     }
     public static boolean negativeDiagonalWin(boolean turn, String[][]arr) {
         String s;
-        if(turn) {
+        if(!turn) {
             s = "X";
         }
         else {
