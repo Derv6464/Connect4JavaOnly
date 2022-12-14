@@ -12,8 +12,12 @@ public class connect4{
         updateGrid(arr);
         while(!checkWin(turn,arr)){
             System.out.println("Select a square");
-        
+            
             int input = in.nextInt();
+            while(!checkInput(arr,input)){
+                System.out.println("You can't select here, select another square");
+                input = in.nextInt();
+            }
 
             turn = insert(input, turn, arr);
             updateGrid(arr);
@@ -38,6 +42,22 @@ public class connect4{
         }
         turn = !turn;
         return turn;
+    }
+
+    static boolean checkInput(String[][] arr,int input){
+        int cnt = 0;
+        if(input >7 || input < 1){
+            return false;
+        }
+        
+        while(cnt < 6 && arr[input-1][cnt] != " " ){
+            cnt += 1;
+        }
+        System.out.println(cnt);
+        if (cnt > 5){
+            return false;
+        }
+        return true;
     }
 
     static void updateGrid(String[][] arr){
